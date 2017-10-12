@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LoginApp</title>
+    
+   <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body  ng-app="chirpApp">
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+           
+            {{#if user}}
+             <li class="nav-item">
+              <a class="nav-link" href="/">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/logout">Logout</a>
+            </li>
+            {{else}}
+                        <li class="nav-item">
+              <a class="nav-link" href="/users/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/register">Register</a>
+            </li>
+           
+            
+            {{/if}}
+          </ul>
+        </nav>
+        <h3 class="text-muted">Login App</h3>
+      </div>
+
+     
+
+      <div class="row" ng-controller="mainController">
+        <div class="col-lg-12">
+          {{#if success_msg}}
+        <div class="alert alert-success">{{success_msg}}</div>
+{{/if}}
+          {{#if error_msg}}
+        <div class="alert alert-danger">{{error_msg}}</div>
+{{/if}}
+        
+         {{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+          {{{body}}}
+        </div>
+
+        </div>
+      <footer class="footer">
+        <p>&copy; LoginApp 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="/js/chirp.js"></script>
+</html>
